@@ -143,7 +143,7 @@
             <li><a href="#process">Process</a></li>
             <li><a href="#pricing">Pricing</a></li>
         </ul>
-        <a href="mailto:dave@onlinedesign.cc" class="nav-cta">Get Started</a>
+        <a href="#contact" class="nav-cta">Get Started</a>
     </nav>
 
     <section class="hero">
@@ -151,7 +151,7 @@
         <h1>Your business deserves a better website.</h1>
         <p>We design and build beautiful, fast websites that turn visitors into customers. One price. No subscriptions. No surprises.</p>
         <div class="hero-buttons">
-            <a href="mailto:dave@onlinedesign.cc" class="btn-blue">Get a free demo →</a>
+            <a href="#contact" class="btn-blue">Get a free demo →</a>
             <a href="#work" class="btn-ghost">See our work ›</a>
         </div>
         <div class="hero-image">
@@ -274,7 +274,7 @@
                 <li><span class="pricing-check">✓</span> Domain setup & configuration</li>
                 <li><span class="pricing-check">✓</span> 30 days of free revisions</li>
             </ul>
-            <a href="mailto:dave@onlinedesign.cc" class="btn-blue" style="width:100%;justify-content:center;padding:1rem">Get started →</a>
+            <a href="#contact" class="btn-blue" style="width:100%;justify-content:center;padding:1rem">Get started →</a>
         </div>
     </section>
 
@@ -285,17 +285,26 @@
         </div>
     </section>
 
-    <section class="cta-section">
+    <section class="cta-section" id="contact">
         <h2>Let's build something great.</h2>
-        <p>Send us an email. We'll have a free demo ready within 48 hours.</p>
-        <a href="mailto:dave@onlinedesign.cc" class="btn-blue" style="font-size:1.05rem;padding:1rem 2.5rem">Get a free demo →</a>
-        <a href="mailto:dave@onlinedesign.cc" class="cta-email">dave@onlinedesign.cc</a>
+        <p>Tell us about your business and we'll have a free demo ready within 48 hours.</p>
+        <form action="https://formsubmit.co/degenai@icloud.com" method="POST" style="max-width:480px;margin:2rem auto 0;text-align:left">
+            <input type="hidden" name="_subject" value="New OnlineDesign Lead!">
+            <input type="hidden" name="_captcha" value="false">
+            <input type="hidden" name="_next" value="https://onlinedesign.cc/?thanks=1">
+            <input type="text" name="name" placeholder="Your name" required style="width:100%;padding:.85rem 1rem;margin-bottom:.75rem;border:1px solid #d1d5db;border-radius:10px;font-size:1rem;background:#fff;color:#111">
+            <input type="email" name="email" placeholder="Your email" required style="width:100%;padding:.85rem 1rem;margin-bottom:.75rem;border:1px solid #d1d5db;border-radius:10px;font-size:1rem;background:#fff;color:#111">
+            <input type="text" name="business" placeholder="Business name & website (if any)" style="width:100%;padding:.85rem 1rem;margin-bottom:.75rem;border:1px solid #d1d5db;border-radius:10px;font-size:1rem;background:#fff;color:#111">
+            <textarea name="message" placeholder="Tell us about your project..." rows="3" style="width:100%;padding:.85rem 1rem;margin-bottom:1rem;border:1px solid #d1d5db;border-radius:10px;font-size:1rem;background:#fff;color:#111;resize:vertical;font-family:inherit"></textarea>
+            <button type="submit" class="btn-blue" style="width:100%;justify-content:center;padding:1rem;border:none;cursor:pointer;font-size:1.05rem">Send message →</button>
+        </form>
+        <p style="margin-top:1rem;opacity:.6;font-size:.9rem">Or email directly: dave@onlinedesign.cc</p>
     </section>
 
     <footer>
         <div class="footer-logo">OnlineDesign<span>.</span></div>
         <p>Modern websites for local businesses · Boston, MA</p>
-        <p style="margin-top:.5rem"><a href="mailto:dave@onlinedesign.cc">dave@onlinedesign.cc</a></p>
+        <p style="margin-top:.5rem"><a href="#contact">dave@onlinedesign.cc</a></p>
         <p style="margin-top:1rem">© 2026 OnlineDesign. All rights reserved.</p>
     </footer>
 </body>
