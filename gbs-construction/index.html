@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GBS Construction | General Building Solutions</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        *{margin:0;padding:0;box-sizing:border-box}
+        :root{
+            --accent:#2563EB;--accent-light:#3B82F6;--accent-dark:#1D4ED8;
+            --dark:#09090B;--card:#18181B;--border:#27272A;
+            --text:#FAFAFA;--muted:#A1A1AA;--success:#22C55E;
+        }
+        body{font-family:'Plus Jakarta Sans',sans-serif;background:var(--dark);color:var(--text);line-height:1.6;overflow-x:hidden}
+
+        /* NAV */
+        nav{position:fixed;top:0;width:100%;padding:1rem 2rem;display:flex;justify-content:space-between;align-items:center;z-index:100;background:rgba(9,9,11,0.95);backdrop-filter:blur(20px);border-bottom:1px solid var(--border)}
+        .logo{font-size:1.3rem;font-weight:800;letter-spacing:-0.5px}
+        .logo span{color:var(--accent)}
+        .nav-links{display:flex;gap:2rem;list-style:none}
+        .nav-links a{color:var(--muted);text-decoration:none;font-size:.85rem;font-weight:500;transition:color .3s}
+        .nav-links a:hover{color:var(--text)}
+        .nav-cta{background:var(--accent);color:#fff;padding:.6rem 1.4rem;border-radius:8px;text-decoration:none;font-weight:600;font-size:.85rem;transition:all .3s;border:none;cursor:pointer}
+        .nav-cta:hover{background:var(--accent-light);transform:translateY(-1px)}
+
+        /* HERO */
+        .hero{min-height:100vh;display:flex;align-items:center;padding:6rem 2rem 4rem;position:relative;overflow:hidden}
+        .hero::before{content:'';position:absolute;top:-50%;left:-50%;width:200%;height:200%;background:radial-gradient(circle at 30% 50%,rgba(37,99,235,0.08) 0%,transparent 50%);animation:pulse 8s ease-in-out infinite alternate}
+        @keyframes pulse{0%{opacity:.5}100%{opacity:1}}
+        .hero-inner{max-width:1200px;margin:0 auto;display:grid;grid-template-columns:1fr 1fr;gap:4rem;align-items:center;position:relative}
+        .hero-badge{display:inline-flex;align-items:center;gap:.5rem;background:rgba(37,99,235,0.1);border:1px solid rgba(37,99,235,0.2);padding:.4rem 1rem;border-radius:50px;font-size:.8rem;color:var(--accent-light);margin-bottom:1.5rem}
+        .hero-badge .dot{width:6px;height:6px;background:var(--success);border-radius:50%;animation:blink 2s infinite}
+        @keyframes blink{0%,100%{opacity:1}50%{opacity:.3}}
+        .hero h1{font-size:clamp(2.2rem,5vw,3.8rem);font-weight:800;line-height:1.1;letter-spacing:-1px;margin-bottom:1.5rem}
+        .hero h1 span{background:linear-gradient(135deg,var(--accent),var(--accent-light));-webkit-background-clip:text;-webkit-text-fill-color:transparent}
+        .hero p{font-size:1.1rem;color:var(--muted);max-width:500px;margin-bottom:2rem;font-weight:300}
+        .hero-buttons{display:flex;gap:1rem;flex-wrap:wrap}
+        .btn-primary{background:var(--accent);color:#fff;padding:.9rem 2rem;border-radius:10px;font-size:.95rem;font-weight:600;text-decoration:none;transition:all .3s;display:inline-flex;align-items:center;gap:.5rem;border:none;cursor:pointer}
+        .btn-primary:hover{background:var(--accent-light);transform:translateY(-2px);box-shadow:0 10px 40px rgba(37,99,235,0.3)}
+        .btn-secondary{border:1px solid var(--border);color:var(--text);padding:.9rem 2rem;border-radius:10px;font-size:.95rem;font-weight:500;text-decoration:none;transition:all .3s;background:transparent}
+        .btn-secondary:hover{border-color:var(--accent);color:var(--accent)}
+        .hero-stats{display:flex;gap:2.5rem;margin-top:2.5rem;padding-top:2rem;border-top:1px solid var(--border)}
+        .stat-item h3{font-size:1.8rem;font-weight:800;color:var(--text)}
+        .stat-item p{font-size:.75rem;color:var(--muted);text-transform:uppercase;letter-spacing:1px;margin-top:.2rem}
+        .hero-visual{display:flex;justify-content:center;align-items:center}
+        .hero-card{background:var(--card);border:1px solid var(--border);border-radius:16px;padding:2rem;width:100%;max-width:400px}
+        .hero-card h3{font-size:1.1rem;font-weight:700;margin-bottom:1.5rem}
+        .trust-row{display:flex;align-items:center;gap:.8rem;padding:.8rem 0;border-bottom:1px solid var(--border)}
+        .trust-row:last-child{border:none}
+        .trust-icon{width:40px;height:40px;background:rgba(37,99,235,0.1);border-radius:10px;display:flex;align-items:center;justify-content:center;font-size:1.2rem;flex-shrink:0}
+        .trust-text{font-size:.9rem;font-weight:500}
+        .trust-sub{font-size:.75rem;color:var(--muted)}
+
+        /* SERVICES */
+        .section{padding:5rem 2rem;max-width:1200px;margin:0 auto}
+        .section-label{color:var(--accent);font-size:.75rem;font-weight:700;letter-spacing:2px;text-transform:uppercase;margin-bottom:.5rem}
+        .section-title{font-size:clamp(1.8rem,3.5vw,2.8rem);font-weight:800;letter-spacing:-0.5px;margin-bottom:1rem}
+        .section-desc{color:var(--muted);font-size:1rem;max-width:600px;margin-bottom:3rem;font-weight:300}
+        .services-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:1.2rem}
+        .service-card{background:var(--card);border:1px solid var(--border);border-radius:14px;padding:2rem;transition:all .3s;position:relative;overflow:hidden}
+        .service-card:hover{border-color:var(--accent);transform:translateY(-4px);box-shadow:0 20px 40px rgba(0,0,0,0.3)}
+        .service-card::before{content:'';position:absolute;top:0;left:0;right:0;height:2px;background:linear-gradient(90deg,var(--accent),var(--accent-light));opacity:0;transition:opacity .3s}
+        .service-card:hover::before{opacity:1}
+        .service-emoji{font-size:2rem;margin-bottom:1rem}
+        .service-card h3{font-size:1.1rem;font-weight:700;margin-bottom:.5rem}
+        .service-card p{color:var(--muted);font-size:.85rem;font-weight:300;line-height:1.6}
+
+        /* WHY US */
+        .why-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:2rem}
+        .why-card{display:flex;gap:1rem;align-items:flex-start}
+        .why-icon{width:48px;height:48px;background:rgba(37,99,235,0.1);border-radius:12px;display:flex;align-items:center;justify-content:center;font-size:1.3rem;flex-shrink:0}
+        .why-card h3{font-size:1rem;font-weight:700;margin-bottom:.3rem}
+        .why-card p{color:var(--muted);font-size:.85rem;font-weight:300}
+
+        /* REVIEWS */
+        .reviews-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:1.2rem}
+        .review-card{background:var(--card);border:1px solid var(--border);border-radius:14px;padding:1.8rem}
+        .review-stars{color:#FBBF24;font-size:.9rem;margin-bottom:.8rem}
+        .review-card p{color:var(--muted);font-size:.9rem;font-weight:300;font-style:italic;margin-bottom:1rem;line-height:1.7}
+        .review-author{font-weight:600;font-size:.85rem}
+
+        /* CTA */
+        .cta-section{text-align:center;padding:6rem 2rem;position:relative}
+        .cta-section::before{content:'';position:absolute;top:0;left:0;right:0;bottom:0;background:radial-gradient(ellipse at center,rgba(37,99,235,0.06) 0%,transparent 70%)}
+        .cta-section *{position:relative}
+        .cta-section h2{font-size:clamp(2rem,4vw,3rem);font-weight:800;letter-spacing:-0.5px;margin-bottom:1rem}
+        .cta-section p{color:var(--muted);margin-bottom:2rem;font-weight:300;font-size:1.1rem}
+        .cta-phone{font-size:1.5rem;font-weight:800;color:var(--accent);text-decoration:none;display:inline-block;margin-top:1rem}
+
+        /* FOOTER */
+        footer{border-top:1px solid var(--border);padding:3rem 2rem;max-width:1200px;margin:0 auto;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:1rem}
+        footer .logo{font-size:1.1rem}
+        .footer-links{display:flex;gap:1.5rem}
+        .footer-links a{color:var(--muted);text-decoration:none;font-size:.85rem}
+        .footer-links a:hover{color:var(--text)}
+        .footer-credit{color:#52525B;font-size:.75rem}
+        .footer-credit a{color:var(--accent);text-decoration:none}
+
+        /* MOBILE */
+        @media(max-width:768px){
+            .nav-links{display:none}
+            .hero-inner{grid-template-columns:1fr}
+            .hero-visual{display:none}
+            .hero-stats{flex-wrap:wrap;gap:1.5rem}
+            footer{flex-direction:column;text-align:center}
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <div class="logo">GBS<span>.</span></div>
+        <ul class="nav-links">
+            <li><a href="#services">Services</a></li>
+            <li><a href="#why">Why Us</a></li>
+            <li><a href="#reviews">Reviews</a></li>
+        </ul>
+        <a href="tel:(857) 272-3097" class="nav-cta">📞 Call Now</a>
+    </nav>
+
+    <section class="hero">
+        <div class="hero-inner">
+            <div>
+                <div class="hero-badge"><span class="dot"></span> Serving Saugus, MA & Surrounding Areas</div>
+                <h1>Saugus' Trusted <span>Construction Experts</span></h1>
+                <p>Quality carpentry, construction, painting, and maintenance for homes and businesses across the North Shore.</p>
+                <div class="hero-buttons">
+                    <a href="tel:(857) 272-3097" class="btn-primary">📞 (857) 272-3097</a>
+                    <a href="#services" class="btn-secondary">Our Services →</a>
+                </div>
+                <div class="hero-stats">
+                    <div class="stat-item"><h3>10+</h3><p>Years Experience</p></div>
+                    <div class="stat-item"><h3>5.0★</h3><p>Google Rating</p></div>
+                    <div class="stat-item"><h3>24/7</h3><p>Emergency Service</p></div>
+                </div>
+            </div>
+            <div class="hero-visual">
+                <div class="hero-card">
+                    <h3>Why Saugus, MA Trusts Us</h3>
+                    <div class="trust-row">
+                        <div class="trust-icon">🛡️</div>
+                        <div><div class="trust-text">Licensed & Insured</div><div class="trust-sub">Fully certified professionals</div></div>
+                    </div>
+                    <div class="trust-row">
+                        <div class="trust-icon">⚡</div>
+                        <div><div class="trust-text">Same-Day Service</div><div class="trust-sub">Fast response when you need it</div></div>
+                    </div>
+                    <div class="trust-row">
+                        <div class="trust-icon">💰</div>
+                        <div><div class="trust-text">Upfront Pricing</div><div class="trust-sub">No hidden fees or surprises</div></div>
+                    </div>
+                    <div class="trust-row">
+                        <div class="trust-icon">⭐</div>
+                        <div><div class="trust-text">5-Star Reviews</div><div class="trust-sub">Trusted by your neighbors</div></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="section" id="services">
+        <div class="section-label">What We Do</div>
+        <h2 class="section-title">Our Services</h2>
+        <p class="section-desc">From emergency repairs to full installations, we handle it all with precision and care.</p>
+        <div class="services-grid">
+            <div class="service-card">
+                <div class="service-emoji">🔨</div>
+                <h3>Carpentry</h3>
+                <p>Custom designs and functional structures with expert craftsmanship and lasting durability.</p>
+            </div>
+            <div class="service-card">
+                <div class="service-emoji">🏗️</div>
+                <h3>General Construction</h3>
+                <p>Full-service building solutions from foundations to finish. Commercial and residential.</p>
+            </div>
+            <div class="service-card">
+                <div class="service-emoji">🎨</div>
+                <h3>Painting</h3>
+                <p>Interior and exterior painting with premium finishes that transform your space.</p>
+            </div>
+            <div class="service-card">
+                <div class="service-emoji">🔧</div>
+                <h3>General Maintenance</h3>
+                <p>Routine and preventive maintenance to keep your property in top condition.</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="section" id="why">
+        <div class="section-label">Why Choose Us</div>
+        <h2 class="section-title">Built on Trust, Backed by Experience</h2>
+        <p class="section-desc">We're not just another contractor. Here's what sets us apart.</p>
+        <div class="why-grid">
+            <div class="why-card">
+                <div class="why-icon">👨‍👩‍👧‍👦</div>
+                <div><h3>Family Owned & Operated</h3><p>We treat every home like it's our own. Personal service, every time.</p></div>
+            </div>
+            <div class="why-card">
+                <div class="why-icon">🏆</div>
+                <div><h3>10+ Years of Experience</h3><p>Thousands of jobs completed across Saugus, MA and beyond.</p></div>
+            </div>
+            <div class="why-card">
+                <div class="why-icon">📋</div>
+                <div><h3>Free Estimates</h3><p>Know what you're paying before we start. Transparent, honest pricing.</p></div>
+            </div>
+            <div class="why-card">
+                <div class="why-icon">🔧</div>
+                <div><h3>Guaranteed Workmanship</h3><p>We stand behind every job. If it's not right, we'll make it right.</p></div>
+            </div>
+        </div>
+    </section>
+
+    <section class="section" id="reviews">
+        <div class="section-label">Testimonials</div>
+        <h2 class="section-title">What Our Customers Say</h2>
+        <div class="reviews-grid">
+            <div class="review-card">
+                <div class="review-stars">★★★★★</div>
+                <p>"Showed up on time, got the job done fast, and the price was exactly what they quoted. Can't ask for more than that."</p>
+                <div class="review-author">— Satisfied Customer</div>
+            </div>
+            <div class="review-card">
+                <div class="review-stars">★★★★★</div>
+                <p>"We've used them three times now. Reliable, professional, and fair pricing. They're our go-to."</p>
+                <div class="review-author">— Local Homeowner</div>
+            </div>
+            <div class="review-card">
+                <div class="review-stars">★★★★★</div>
+                <p>"Had an emergency on a Sunday and they still came out. Saved us from a disaster. Highly recommend."</p>
+                <div class="review-author">— Saugus, MA Resident</div>
+            </div>
+        </div>
+    </section>
+
+    <section class="cta-section">
+        <h2>Ready to Get Started?</h2>
+        <p>Call us today for a free estimate. No job too big or small.</p>
+        <a href="tel:(857) 272-3097" class="btn-primary" style="font-size:1.1rem;padding:1rem 3rem">📞 Call (857) 272-3097</a>
+    </section>
+
+    <footer>
+        <div class="logo">GBS<span>.</span></div>
+        <div class="footer-links">
+            <a href="#services">Services</a>
+            <a href="#why">Why Us</a>
+            <a href="#reviews">Reviews</a>
+            <a href="tel:(857) 272-3097">(857) 272-3097</a>
+        </div>
+        <div class="footer-credit">Website by <a href="https://onlinedesign.cc">onlinedesign.cc</a></div>
+    </footer>
+</body>
+</html>
