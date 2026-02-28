@@ -3,198 +3,286 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>OnlineDesign.cc — Modern Websites for Local Businesses</title>
+    <title>OnlineDesign — Modern Websites for Local Businesses</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=SF+Pro+Display:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
     <style>
         *{margin:0;padding:0;box-sizing:border-box}
         :root{
-            --accent:#2563EB;--accent-light:#3B82F6;--accent-glow:rgba(37,99,235,0.15);
-            --dark:#09090B;--card:#18181B;--border:#27272A;
-            --text:#FAFAFA;--muted:#A1A1AA;--success:#22C55E;
+            --black:#1d1d1f;
+            --gray-dark:#424245;
+            --gray:#86868b;
+            --gray-light:#d2d2d7;
+            --gray-bg:#f5f5f7;
+            --white:#ffffff;
+            --blue:#0071e3;
+            --blue-hover:#0077ED;
         }
-        body{font-family:'Plus Jakarta Sans',sans-serif;background:var(--dark);color:var(--text);line-height:1.6;overflow-x:hidden}
-        
+        body{font-family:-apple-system,BlinkMacSystemFont,'SF Pro Display','Inter',sans-serif;background:var(--white);color:var(--black);line-height:1.5;overflow-x:hidden;-webkit-font-smoothing:antialiased}
+
+        /* NAV */
+        nav{position:fixed;top:0;width:100%;padding:0 2rem;height:48px;display:flex;justify-content:space-between;align-items:center;z-index:100;background:rgba(255,255,255,0.8);backdrop-filter:saturate(180%) blur(20px);border-bottom:1px solid rgba(0,0,0,0.04)}
+        .nav-logo{font-size:1.1rem;font-weight:700;letter-spacing:-0.5px;color:var(--black)}
+        .nav-logo span{color:var(--blue)}
+        .nav-links{display:flex;gap:2rem;list-style:none}
+        .nav-links a{color:var(--gray-dark);text-decoration:none;font-size:.82rem;font-weight:400;transition:color .2s}
+        .nav-links a:hover{color:var(--blue)}
+        .nav-cta{background:var(--blue);color:var(--white);padding:.45rem 1.2rem;border-radius:980px;text-decoration:none;font-size:.82rem;font-weight:400;transition:all .2s}
+        .nav-cta:hover{background:var(--blue-hover)}
+        @media(max-width:768px){.nav-links{display:none}}
+
         /* HERO */
-        .hero{min-height:100vh;display:flex;align-items:center;justify-content:center;text-align:center;padding:2rem;position:relative;overflow:hidden}
-        .hero::before{content:'';position:absolute;top:-30%;left:50%;transform:translateX(-50%);width:800px;height:800px;background:radial-gradient(circle,var(--accent-glow) 0%,transparent 70%);animation:glow 6s ease-in-out infinite alternate}
-        @keyframes glow{0%{opacity:.4;transform:translateX(-50%) scale(1)}100%{opacity:.8;transform:translateX(-50%) scale(1.1)}}
-        .hero-content{position:relative;max-width:800px}
-        .badge{display:inline-flex;align-items:center;gap:.5rem;background:rgba(37,99,235,0.08);border:1px solid rgba(37,99,235,0.2);padding:.4rem 1.2rem;border-radius:50px;font-size:.8rem;color:var(--accent-light);margin-bottom:2rem;font-weight:500}
-        .badge .dot{width:6px;height:6px;background:var(--success);border-radius:50%;animation:blink 2s infinite}
-        @keyframes blink{0%,100%{opacity:1}50%{opacity:.3}}
-        .hero h1{font-size:clamp(2.5rem,6vw,4.5rem);font-weight:900;line-height:1.05;letter-spacing:-2px;margin-bottom:1.5rem}
-        .hero h1 span{background:linear-gradient(135deg,var(--accent),#60A5FA);-webkit-background-clip:text;-webkit-text-fill-color:transparent}
-        .hero p{font-size:1.15rem;color:var(--muted);max-width:550px;margin:0 auto 2.5rem;font-weight:300;line-height:1.8}
-        .hero-cta{display:inline-flex;align-items:center;gap:.5rem;background:var(--accent);color:#fff;padding:1rem 2.5rem;border-radius:12px;font-size:1rem;font-weight:600;text-decoration:none;transition:all .3s;border:none;cursor:pointer}
-        .hero-cta:hover{background:var(--accent-light);transform:translateY(-2px);box-shadow:0 15px 40px rgba(37,99,235,0.35)}
+        .hero{min-height:100vh;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:6rem 2rem 4rem;background:var(--white)}
+        .hero-eyebrow{font-size:.95rem;color:var(--blue);font-weight:500;margin-bottom:1rem}
+        .hero h1{font-size:clamp(2.8rem,7vw,5.5rem);font-weight:700;line-height:1.05;letter-spacing:-3px;color:var(--black);margin-bottom:1.2rem;max-width:900px}
+        .hero p{font-size:clamp(1.1rem,2vw,1.4rem);color:var(--gray);max-width:600px;margin:0 auto 2.5rem;font-weight:300;line-height:1.6;letter-spacing:-0.2px}
+        .hero-buttons{display:flex;gap:1rem;flex-wrap:wrap;justify-content:center}
+        .btn-blue{background:var(--blue);color:var(--white);padding:.85rem 2rem;border-radius:980px;font-size:1rem;font-weight:400;text-decoration:none;transition:all .2s;display:inline-flex;align-items:center;gap:.4rem}
+        .btn-blue:hover{background:var(--blue-hover)}
+        .btn-ghost{color:var(--blue);padding:.85rem 2rem;border-radius:980px;font-size:1rem;font-weight:400;text-decoration:none;transition:all .2s;display:inline-flex;align-items:center;gap:.3rem}
+        .btn-ghost:hover{text-decoration:underline}
+        .hero-image{margin-top:4rem;width:100%;max-width:1000px;height:500px;background:var(--gray-bg);border-radius:20px;display:flex;align-items:center;justify-content:center;overflow:hidden;position:relative}
+        .hero-image-inner{display:flex;gap:1.5rem;padding:2rem}
+        .mock-browser{background:var(--white);border-radius:12px;box-shadow:0 4px 40px rgba(0,0,0,0.08);overflow:hidden;flex-shrink:0}
+        .mock-browser-bar{height:32px;background:#f0f0f0;display:flex;align-items:center;padding:0 12px;gap:6px}
+        .mock-dot{width:8px;height:8px;border-radius:50%}
+        .mock-dot.r{background:#ff5f57}.mock-dot.y{background:#febc2e}.mock-dot.g{background:#28c840}
+        .mock-url{margin-left:8px;background:#fff;border-radius:4px;padding:2px 10px;font-size:.65rem;color:var(--gray);flex:1;text-align:center}
+        .mock-body{padding:1.5rem;min-height:200px}
+        .mock-body h4{font-size:.85rem;font-weight:600;margin-bottom:.5rem}
+        .mock-body .bar{height:8px;background:var(--gray-bg);border-radius:4px;margin-bottom:6px}
+        .mock-body .bar.w60{width:60%}.mock-body .bar.w80{width:80%}.mock-body .bar.w45{width:45%}
+        .mock-body .blue-bar{height:28px;background:var(--blue);border-radius:6px;margin-top:1rem;width:40%;opacity:0.9}
+        .mock-phone{width:180px;background:var(--white);border-radius:24px;box-shadow:0 4px 40px rgba(0,0,0,0.08);overflow:hidden;flex-shrink:0;border:2px solid var(--gray-light)}
+        .mock-phone-notch{width:80px;height:16px;background:var(--gray-bg);border-radius:0 0 12px 12px;margin:0 auto}
+        .mock-phone-body{padding:1rem}
+        .mock-phone-body h5{font-size:.7rem;font-weight:600;margin-bottom:.4rem}
+        .mock-phone-body .bar{height:6px;background:var(--gray-bg);border-radius:3px;margin-bottom:4px}
+        .mock-phone-body .bar.w60{width:60%}.mock-phone-body .bar.w80{width:80%}.mock-phone-body .bar.w45{width:45%}
+        .mock-phone-body .blue-bar{height:24px;background:var(--blue);border-radius:6px;margin-top:.8rem;width:100%;opacity:0.9}
 
-        /* WHAT WE DO */
-        .section{padding:6rem 2rem;max-width:1100px;margin:0 auto}
-        .section-label{color:var(--accent);font-size:.75rem;font-weight:700;letter-spacing:3px;text-transform:uppercase;margin-bottom:.5rem;text-align:center}
-        .section-title{font-size:clamp(1.8rem,3.5vw,2.8rem);font-weight:800;letter-spacing:-1px;margin-bottom:1rem;text-align:center}
-        .section-desc{color:var(--muted);font-size:1rem;max-width:600px;margin:0 auto 3.5rem;font-weight:300;text-align:center;line-height:1.8}
+        /* SECTIONS */
+        .section{padding:7rem 2rem;max-width:1080px;margin:0 auto}
+        .section-gray{background:var(--gray-bg)}
+        .section-center{text-align:center}
+        .eyebrow{font-size:.85rem;color:var(--blue);font-weight:500;margin-bottom:.6rem}
+        .section h2{font-size:clamp(2rem,4vw,3.2rem);font-weight:700;letter-spacing:-1.5px;color:var(--black);margin-bottom:.8rem}
+        .section h2.large{font-size:clamp(2.5rem,5vw,4rem)}
+        .section .subtitle{font-size:1.1rem;color:var(--gray);font-weight:300;max-width:600px;line-height:1.7;letter-spacing:-0.1px}
+        .section-center .subtitle{margin:0 auto}
 
-        .features{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:1.5rem}
-        .feature{background:var(--card);border:1px solid var(--border);border-radius:16px;padding:2.5rem 2rem;transition:all .3s;position:relative;overflow:hidden}
-        .feature:hover{border-color:var(--accent);transform:translateY(-4px);box-shadow:0 20px 40px rgba(0,0,0,0.3)}
-        .feature::before{content:'';position:absolute;top:0;left:0;right:0;height:2px;background:linear-gradient(90deg,var(--accent),var(--accent-light));opacity:0;transition:opacity .3s}
-        .feature:hover::before{opacity:1}
-        .feature-icon{font-size:2.2rem;margin-bottom:1.2rem}
-        .feature h3{font-size:1.15rem;font-weight:700;margin-bottom:.5rem}
-        .feature p{color:var(--muted);font-size:.9rem;font-weight:300;line-height:1.7}
+        /* FEATURES */
+        .features{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;margin-top:3.5rem;background:var(--gray-light);border-radius:20px;overflow:hidden}
+        .feature-card{background:var(--white);padding:3rem 2.5rem}
+        .feature-card .icon{font-size:2rem;margin-bottom:1.2rem}
+        .feature-card h3{font-size:1.15rem;font-weight:600;margin-bottom:.5rem;letter-spacing:-0.3px}
+        .feature-card p{color:var(--gray);font-size:.9rem;font-weight:300;line-height:1.7}
+        @media(max-width:768px){.features{grid-template-columns:1fr}}
 
         /* PROCESS */
-        .process{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:2rem;margin-top:3rem}
-        .step{text-align:center;padding:1.5rem}
-        .step-num{display:inline-flex;align-items:center;justify-content:center;width:48px;height:48px;background:rgba(37,99,235,0.1);border:1px solid rgba(37,99,235,0.2);border-radius:14px;font-size:1.2rem;font-weight:800;color:var(--accent);margin-bottom:1rem}
-        .step h3{font-size:1rem;font-weight:700;margin-bottom:.4rem}
-        .step p{color:var(--muted);font-size:.85rem;font-weight:300}
+        .process-steps{display:flex;gap:0;margin-top:3.5rem;justify-content:center}
+        .process-step{flex:1;max-width:250px;text-align:center;padding:2rem 1.5rem;position:relative}
+        .process-step::after{content:'';position:absolute;top:36px;right:-20px;width:40px;height:1px;background:var(--gray-light)}
+        .process-step:last-child::after{display:none}
+        .step-circle{width:56px;height:56px;border-radius:50%;background:var(--gray-bg);display:inline-flex;align-items:center;justify-content:center;font-size:1.1rem;font-weight:700;color:var(--black);margin-bottom:1.2rem}
+        .process-step h3{font-size:1rem;font-weight:600;margin-bottom:.4rem;letter-spacing:-0.2px}
+        .process-step p{color:var(--gray);font-size:.85rem;font-weight:300;line-height:1.6}
+        @media(max-width:768px){.process-steps{flex-direction:column;align-items:center}.process-step::after{display:none}}
 
         /* PRICING */
-        .pricing-card{background:var(--card);border:1px solid var(--border);border-radius:20px;padding:3rem;max-width:500px;margin:0 auto;text-align:center;position:relative;overflow:hidden}
-        .pricing-card::before{content:'';position:absolute;top:0;left:0;right:0;height:3px;background:linear-gradient(90deg,var(--accent),#60A5FA,var(--accent))}
-        .pricing-label{font-size:.8rem;color:var(--accent);font-weight:700;letter-spacing:2px;text-transform:uppercase;margin-bottom:.5rem}
-        .pricing-price{font-size:3.5rem;font-weight:900;letter-spacing:-2px;margin-bottom:.5rem}
-        .pricing-price span{font-size:1rem;color:var(--muted);font-weight:400}
-        .pricing-desc{color:var(--muted);font-size:.95rem;margin-bottom:2rem;font-weight:300}
-        .pricing-features{list-style:none;text-align:left;margin-bottom:2rem}
-        .pricing-features li{padding:.6rem 0;border-bottom:1px solid var(--border);font-size:.9rem;display:flex;align-items:center;gap:.8rem}
-        .pricing-features li:last-child{border:none}
-        .pricing-features .check{color:var(--success);font-weight:700}
-        .pricing-cta{display:inline-flex;align-items:center;gap:.5rem;background:var(--accent);color:#fff;padding:.9rem 2.5rem;border-radius:12px;font-size:1rem;font-weight:600;text-decoration:none;transition:all .3s;width:100%;justify-content:center}
-        .pricing-cta:hover{background:var(--accent-light)}
+        .pricing-card{background:var(--white);border:1px solid var(--gray-light);border-radius:24px;padding:3.5rem 3rem;max-width:480px;margin:3rem auto 0;text-align:center;transition:all .3s}
+        .pricing-card:hover{box-shadow:0 8px 60px rgba(0,0,0,0.08);transform:translateY(-2px)}
+        .pricing-amount{font-size:4rem;font-weight:700;letter-spacing:-3px;color:var(--black);margin-bottom:.2rem}
+        .pricing-amount span{font-size:1rem;color:var(--gray);font-weight:400;letter-spacing:0}
+        .pricing-sub{color:var(--gray);font-size:.95rem;font-weight:300;margin-bottom:2.5rem}
+        .pricing-list{list-style:none;text-align:left;margin-bottom:2.5rem}
+        .pricing-list li{padding:.7rem 0;font-size:.92rem;color:var(--gray-dark);display:flex;align-items:center;gap:.7rem;font-weight:400}
+        .pricing-list li+li{border-top:1px solid var(--gray-bg)}
+        .pricing-check{color:var(--blue);font-size:.85rem}
+
+        /* TESTIMONIAL */
+        .testimonial{max-width:700px;margin:0 auto;text-align:center;padding:2rem}
+        .testimonial blockquote{font-size:1.3rem;font-weight:300;color:var(--gray-dark);line-height:1.7;letter-spacing:-0.3px;font-style:normal;margin-bottom:1.5rem}
+        .testimonial blockquote::before{content:'"';font-size:3rem;color:var(--gray-light);display:block;margin-bottom:-.5rem}
+        .testimonial cite{font-style:normal;font-size:.85rem;color:var(--gray);font-weight:500}
 
         /* CTA */
-        .cta-section{text-align:center;padding:6rem 2rem;position:relative}
-        .cta-section::before{content:'';position:absolute;top:0;left:0;right:0;bottom:0;background:radial-gradient(ellipse at center,var(--accent-glow) 0%,transparent 70%)}
-        .cta-section *{position:relative}
-        .cta-section h2{font-size:clamp(2rem,4vw,3rem);font-weight:900;letter-spacing:-1px;margin-bottom:1rem}
-        .cta-section p{color:var(--muted);margin-bottom:2rem;font-weight:300;font-size:1.1rem}
+        .cta-section{text-align:center;padding:8rem 2rem;background:var(--gray-bg)}
+        .cta-section h2{font-size:clamp(2.2rem,5vw,3.5rem);font-weight:700;letter-spacing:-2px;margin-bottom:.8rem}
+        .cta-section p{color:var(--gray);font-size:1.1rem;font-weight:300;margin-bottom:2rem;max-width:500px;margin-left:auto;margin-right:auto}
+        .cta-email{display:block;font-size:1.3rem;font-weight:500;color:var(--blue);text-decoration:none;margin-top:1.5rem;letter-spacing:-0.3px}
+        .cta-email:hover{text-decoration:underline}
 
         /* FOOTER */
-        footer{border-top:1px solid var(--border);padding:2.5rem 2rem;text-align:center}
-        .footer-logo{font-size:1.2rem;font-weight:800;margin-bottom:.5rem}
-        .footer-logo span{color:var(--accent)}
-        footer p{color:#52525B;font-size:.8rem}
-        footer a{color:var(--accent);text-decoration:none}
-
-        /* MOBILE */
-        @media(max-width:768px){
-            .features{grid-template-columns:1fr}
-            .process{grid-template-columns:1fr 1fr}
-        }
+        footer{padding:3rem 2rem;text-align:center;border-top:1px solid var(--gray-bg)}
+        .footer-logo{font-size:1rem;font-weight:700;color:var(--black);margin-bottom:.3rem;letter-spacing:-0.3px}
+        .footer-logo span{color:var(--blue)}
+        footer p{color:var(--gray);font-size:.8rem;font-weight:300}
+        footer a{color:var(--blue);text-decoration:none}
     </style>
 </head>
 <body>
+    <nav>
+        <div class="nav-logo">OnlineDesign<span>.</span></div>
+        <ul class="nav-links">
+            <li><a href="#work">Work</a></li>
+            <li><a href="#process">Process</a></li>
+            <li><a href="#pricing">Pricing</a></li>
+        </ul>
+        <a href="mailto:dave@onlinedesign.cc" class="nav-cta">Get Started</a>
+    </nav>
+
     <section class="hero">
-        <div class="hero-content">
-            <div class="badge"><span class="dot"></span> Now accepting new clients</div>
-            <h1>Modern Websites for <span>Local Businesses</span></h1>
-            <p>We build fast, mobile-friendly websites that turn visitors into customers. One-time fee. No monthly costs. No BS.</p>
-            <a href="mailto:dave@onlinedesign.cc" class="hero-cta">📧 Get a Free Demo</a>
+        <div class="hero-eyebrow">Web design for local businesses</div>
+        <h1>Your business deserves a better website.</h1>
+        <p>We design and build beautiful, fast websites that turn visitors into customers. One price. No subscriptions. No surprises.</p>
+        <div class="hero-buttons">
+            <a href="mailto:dave@onlinedesign.cc" class="btn-blue">Get a free demo →</a>
+            <a href="#work" class="btn-ghost">See our work ›</a>
+        </div>
+        <div class="hero-image">
+            <div class="hero-image-inner">
+                <div class="mock-browser" style="width:520px">
+                    <div class="mock-browser-bar">
+                        <div class="mock-dot r"></div>
+                        <div class="mock-dot y"></div>
+                        <div class="mock-dot g"></div>
+                        <div class="mock-url">yourbusiness.com</div>
+                    </div>
+                    <div class="mock-body" style="min-height:280px">
+                        <div style="height:120px;background:linear-gradient(135deg,#f5f5f7,#e8e8ed);border-radius:10px;margin-bottom:1.2rem;display:flex;align-items:center;justify-content:center;color:#86868b;font-size:.85rem;font-weight:500">Your Business Hero</div>
+                        <h4 style="color:#1d1d1f">Professional Services</h4>
+                        <div class="bar w80"></div>
+                        <div class="bar w60"></div>
+                        <div class="bar w45"></div>
+                        <div class="blue-bar"></div>
+                    </div>
+                </div>
+                <div class="mock-phone">
+                    <div class="mock-phone-notch"></div>
+                    <div class="mock-phone-body">
+                        <div style="height:60px;background:linear-gradient(135deg,#f5f5f7,#e8e8ed);border-radius:8px;margin-bottom:.8rem;display:flex;align-items:center;justify-content:center;color:#86868b;font-size:.6rem;font-weight:500">Mobile View</div>
+                        <h5 style="color:#1d1d1f">Services</h5>
+                        <div class="bar w80"></div>
+                        <div class="bar w60"></div>
+                        <div class="blue-bar"></div>
+                        <div style="margin-top:.6rem">
+                            <div class="bar w45"></div>
+                            <div class="bar w80"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
     </section>
 
-    <section class="section">
-        <div class="section-label">What We Do</div>
-        <h2 class="section-title">Websites That Actually Work</h2>
-        <p class="section-desc">Most small business websites are slow, ugly, and don't bring in customers. We fix that.</p>
+    <section class="section section-center" id="work">
+        <div class="eyebrow">Why it matters</div>
+        <h2 class="large">First impressions<br>happen online.</h2>
+        <p class="subtitle">75% of people judge a business by its website. If yours looks outdated — or doesn't exist — you're losing customers to competitors who showed up.</p>
+
         <div class="features">
-            <div class="feature">
-                <div class="feature-icon">📱</div>
-                <h3>Mobile-First Design</h3>
-                <p>Over 70% of your customers find you on their phone. Your site will look perfect on every screen size.</p>
+            <div class="feature-card">
+                <div class="icon">📱</div>
+                <h3>Mobile-first</h3>
+                <p>Designed for the way people actually browse — on their phones. Responsive on every device.</p>
             </div>
-            <div class="feature">
-                <div class="feature-icon">⚡</div>
-                <h3>Lightning Fast</h3>
-                <p>No bloated WordPress themes. Our sites load in under 2 seconds — because speed means more customers.</p>
+            <div class="feature-card">
+                <div class="icon">⚡</div>
+                <h3>Blazing fast</h3>
+                <p>No bloated themes or slow plugins. Your site loads in under 2 seconds, every time.</p>
             </div>
-            <div class="feature">
-                <div class="feature-icon">📞</div>
-                <h3>Built to Convert</h3>
-                <p>Click-to-call buttons, clear service info, and trust signals. Everything designed to make visitors pick up the phone.</p>
+            <div class="feature-card">
+                <div class="icon">📞</div>
+                <h3>Converts visitors</h3>
+                <p>Click-to-call, clear CTAs, and trust signals that turn browsers into paying customers.</p>
             </div>
-            <div class="feature">
-                <div class="feature-icon">🔍</div>
-                <h3>SEO Ready</h3>
-                <p>Proper structure, fast load times, and mobile optimization — the foundations Google looks for to rank your site.</p>
+            <div class="feature-card">
+                <div class="icon">🎨</div>
+                <h3>Custom design</h3>
+                <p>No templates. Every site is designed from scratch for your brand, your city, your audience.</p>
             </div>
-            <div class="feature">
-                <div class="feature-icon">🛡️</div>
-                <h3>No Monthly Fees</h3>
-                <p>One-time payment. You own it. No $50/month hosting scams or surprise charges. Ever.</p>
+            <div class="feature-card">
+                <div class="icon">🔍</div>
+                <h3>SEO optimized</h3>
+                <p>Built with clean code and proper structure so Google can find you and rank you.</p>
             </div>
-            <div class="feature">
-                <div class="feature-icon">🎨</div>
-                <h3>Custom Design</h3>
-                <p>No cookie-cutter templates. Every site is built specifically for your business, your brand, your city.</p>
-            </div>
-        </div>
-    </section>
-
-    <section class="section">
-        <div class="section-label">How It Works</div>
-        <h2 class="section-title">Simple. Fast. Done.</h2>
-        <div class="process">
-            <div class="step">
-                <div class="step-num">1</div>
-                <h3>Free Demo</h3>
-                <p>We build a preview of your site before you pay a dime. No commitment.</p>
-            </div>
-            <div class="step">
-                <div class="step-num">2</div>
-                <h3>You Review</h3>
-                <p>Check it out, request changes, make sure you love it.</p>
-            </div>
-            <div class="step">
-                <div class="step-num">3</div>
-                <h3>One Payment</h3>
-                <p>Happy with it? One flat fee and the site is yours. No subscriptions.</p>
-            </div>
-            <div class="step">
-                <div class="step-num">4</div>
-                <h3>Go Live</h3>
-                <p>We set it up on your domain and you're live. Start getting calls.</p>
+            <div class="feature-card">
+                <div class="icon">🛡️</div>
+                <h3>You own it</h3>
+                <p>No monthly fees. No vendor lock-in. Pay once and the site is yours forever.</p>
             </div>
         </div>
     </section>
 
-    <section class="section">
-        <div class="section-label">Pricing</div>
-        <h2 class="section-title">Straightforward Pricing</h2>
-        <p class="section-desc">No hidden fees. No upsells. Just a great website at a fair price.</p>
+    <section class="section section-gray section-center" id="process">
+        <div class="eyebrow">How it works</div>
+        <h2>Four steps. That's it.</h2>
+        <p class="subtitle">We keep it simple so you can focus on running your business.</p>
+        <div class="process-steps">
+            <div class="process-step">
+                <div class="step-circle">1</div>
+                <h3>We build a demo</h3>
+                <p>We create a custom preview of your new site. Completely free, no strings.</p>
+            </div>
+            <div class="process-step">
+                <div class="step-circle">2</div>
+                <h3>You review it</h3>
+                <p>Check it out on your phone and computer. Tell us what you'd change.</p>
+            </div>
+            <div class="process-step">
+                <div class="step-circle">3</div>
+                <h3>One payment</h3>
+                <p>Love it? One flat fee. No subscriptions, no hidden costs.</p>
+            </div>
+            <div class="process-step">
+                <div class="step-circle">4</div>
+                <h3>You're live</h3>
+                <p>We set everything up on your domain. Start getting more calls.</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="section section-center" id="pricing">
+        <div class="eyebrow">Pricing</div>
+        <h2>Simple, honest pricing.</h2>
+        <p class="subtitle">Everything you need. Nothing you don't.</p>
         <div class="pricing-card">
-            <div class="pricing-label">Complete Website</div>
-            <div class="pricing-price">$499 <span>one-time</span></div>
-            <p class="pricing-desc">Everything you need to look professional online and start getting more customers.</p>
-            <ul class="pricing-features">
-                <li><span class="check">✓</span> Custom design for your business</li>
-                <li><span class="check">✓</span> Mobile-friendly & fast</li>
-                <li><span class="check">✓</span> Click-to-call & contact forms</li>
-                <li><span class="check">✓</span> Google Maps integration</li>
-                <li><span class="check">✓</span> SEO optimized</li>
-                <li><span class="check">✓</span> SSL certificate (https)</li>
-                <li><span class="check">✓</span> Domain setup included</li>
-                <li><span class="check">✓</span> 30 days of free revisions</li>
-                <li><span class="check">✓</span> No monthly fees — ever</li>
+            <div class="pricing-amount">$499 <span>one-time</span></div>
+            <div class="pricing-sub">No monthly fees. No contracts. Ever.</div>
+            <ul class="pricing-list">
+                <li><span class="pricing-check">✓</span> Custom-designed website</li>
+                <li><span class="pricing-check">✓</span> Mobile-responsive on all devices</li>
+                <li><span class="pricing-check">✓</span> Click-to-call & contact forms</li>
+                <li><span class="pricing-check">✓</span> Google Maps integration</li>
+                <li><span class="pricing-check">✓</span> SEO foundations</li>
+                <li><span class="pricing-check">✓</span> SSL certificate included</li>
+                <li><span class="pricing-check">✓</span> Domain setup & configuration</li>
+                <li><span class="pricing-check">✓</span> 30 days of free revisions</li>
             </ul>
-            <a href="mailto:dave@onlinedesign.cc" class="pricing-cta">📧 Get Started — dave@onlinedesign.cc</a>
+            <a href="mailto:dave@onlinedesign.cc" class="btn-blue" style="width:100%;justify-content:center;padding:1rem">Get started →</a>
+        </div>
+    </section>
+
+    <section class="section section-center">
+        <div class="testimonial">
+            <blockquote>We went from zero online presence to getting calls the first week. Dave made the whole process painless.</blockquote>
+            <cite>— Local business owner, Boston MA</cite>
         </div>
     </section>
 
     <section class="cta-section">
-        <h2>Ready for a website that works?</h2>
-        <p>Email us and we'll build you a free demo. No strings attached.</p>
-        <a href="mailto:dave@onlinedesign.cc" class="hero-cta">📧 dave@onlinedesign.cc</a>
+        <h2>Let's build something great.</h2>
+        <p>Send us an email. We'll have a free demo ready within 48 hours.</p>
+        <a href="mailto:dave@onlinedesign.cc" class="btn-blue" style="font-size:1.05rem;padding:1rem 2.5rem">Get a free demo →</a>
+        <a href="mailto:dave@onlinedesign.cc" class="cta-email">dave@onlinedesign.cc</a>
     </section>
 
     <footer>
-        <div class="footer-logo">OnlineDesign<span>.</span>cc</div>
+        <div class="footer-logo">OnlineDesign<span>.</span></div>
         <p>Modern websites for local businesses · Boston, MA</p>
         <p style="margin-top:.5rem"><a href="mailto:dave@onlinedesign.cc">dave@onlinedesign.cc</a></p>
-        <p style="margin-top:1rem">© 2026 OnlineDesign.cc. All rights reserved.</p>
+        <p style="margin-top:1rem">© 2026 OnlineDesign. All rights reserved.</p>
     </footer>
 </body>
 </html>
