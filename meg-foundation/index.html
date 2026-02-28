@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>M.E.G. Foundation — Saugus, MA | Events & Community Hall</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700;800&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <style>
+        *{margin:0;padding:0;box-sizing:border-box}
+        :root{
+            --navy:#1B2A4A;
+            --navy-dark:#0F1D36;
+            --navy-light:#2A3F6A;
+            --gold:#C5A55A;
+            --gold-light:#D4BA7A;
+            --gold-pale:#F5EDD6;
+            --cream:#FEFCF6;
+            --white:#FFFFFF;
+            --text:#2D2D2D;
+            --muted:#6B7280;
+            --border:#E5E7EB;
+        }
+        body{font-family:'Inter',sans-serif;background:var(--cream);color:var(--text);line-height:1.6;-webkit-font-smoothing:antialiased}
+
+        /* NAV */
+        nav{position:fixed;top:0;width:100%;padding:0 2rem;height:72px;display:flex;justify-content:space-between;align-items:center;z-index:100;background:rgba(254,252,246,0.95);backdrop-filter:blur(20px);border-bottom:1px solid var(--border)}
+        .nav-brand{display:flex;align-items:center;gap:.8rem}
+        .nav-logo{width:44px;height:44px}
+        .nav-name{font-family:'Playfair Display',serif;font-size:1.2rem;font-weight:700;color:var(--navy)}
+        .nav-name span{color:var(--gold)}
+        .nav-links{display:flex;gap:2rem;list-style:none}
+        .nav-links a{color:var(--muted);text-decoration:none;font-size:.85rem;font-weight:500;transition:color .2s}
+        .nav-links a:hover{color:var(--navy)}
+        .nav-cta{background:var(--navy);color:var(--white);padding:.55rem 1.4rem;border-radius:8px;text-decoration:none;font-size:.85rem;font-weight:500;transition:all .2s}
+        .nav-cta:hover{background:var(--navy-light)}
+
+        /* HERO */
+        .hero{padding:8rem 2rem 4rem;text-align:center;background:linear-gradient(180deg,var(--cream) 0%,var(--white) 100%);position:relative}
+        .hero::after{content:'';position:absolute;bottom:0;left:0;right:0;height:1px;background:linear-gradient(90deg,transparent,var(--gold),transparent)}
+        .hero-badge{display:inline-flex;align-items:center;gap:.4rem;background:var(--gold-pale);color:var(--navy);padding:.35rem 1rem;border-radius:50px;font-size:.8rem;font-weight:500;margin-bottom:1.5rem;letter-spacing:.5px}
+
+        /* SVG Logo */
+        .hero-logo{margin-bottom:2rem}
+        .hero-logo svg{width:120px;height:120px}
+
+        .hero h1{font-family:'Playfair Display',serif;font-size:clamp(2.2rem,5vw,3.8rem);font-weight:700;color:var(--navy);line-height:1.15;letter-spacing:-1px;margin-bottom:1rem}
+        .hero h1 em{font-style:normal;color:var(--gold)}
+        .hero p{font-size:1.1rem;color:var(--muted);max-width:550px;margin:0 auto 2rem;font-weight:300;line-height:1.7}
+        .hero-details{display:flex;gap:2rem;justify-content:center;flex-wrap:wrap;margin-bottom:2rem}
+        .hero-detail{display:flex;align-items:center;gap:.4rem;font-size:.9rem;color:var(--text);font-weight:500}
+        .hero-detail .icon{font-size:1.1rem}
+        .hero-buttons{display:flex;gap:1rem;justify-content:center;flex-wrap:wrap}
+        .btn-navy{background:var(--navy);color:var(--white);padding:.85rem 2rem;border-radius:10px;font-size:.95rem;font-weight:500;text-decoration:none;transition:all .2s;display:inline-flex;align-items:center;gap:.4rem}
+        .btn-navy:hover{background:var(--navy-light);transform:translateY(-1px)}
+        .btn-gold{background:transparent;border:1.5px solid var(--gold);color:var(--navy);padding:.85rem 2rem;border-radius:10px;font-size:.95rem;font-weight:500;text-decoration:none;transition:all .2s}
+        .btn-gold:hover{background:var(--gold-pale)}
+
+        /* SECTIONS */
+        .section{padding:4rem 2rem;max-width:1000px;margin:0 auto}
+        .section-full{padding:4rem 2rem;max-width:100%}
+        .section-label{font-family:'Playfair Display',serif;font-size:.8rem;color:var(--gold);font-weight:600;letter-spacing:2px;text-transform:uppercase;margin-bottom:.5rem;text-align:center}
+        .section h2{font-family:'Playfair Display',serif;font-size:clamp(1.8rem,3.5vw,2.5rem);font-weight:700;color:var(--navy);text-align:center;margin-bottom:.5rem}
+        .section-desc{color:var(--muted);font-size:.95rem;text-align:center;max-width:500px;margin:0 auto 2.5rem;font-weight:300}
+
+        /* ABOUT */
+        .about-grid{display:grid;grid-template-columns:1fr 1fr;gap:3rem;align-items:center;margin-top:2rem}
+        .about-image{background:var(--navy);border-radius:16px;height:300px;display:flex;align-items:center;justify-content:center;font-size:4rem;color:var(--gold)}
+        .about-text p{color:var(--muted);font-size:.95rem;font-weight:300;line-height:1.8;margin-bottom:1rem}
+        .about-stats{display:flex;gap:2rem;margin-top:1.5rem}
+        .about-stat h3{font-family:'Playfair Display',serif;font-size:1.8rem;color:var(--navy)}
+        .about-stat p{font-size:.75rem;color:var(--muted);text-transform:uppercase;letter-spacing:1px}
+
+        /* EVENTS - FB FEED */
+        .events-section{background:var(--white);padding:4rem 2rem;border-top:1px solid var(--border);border-bottom:1px solid var(--border)}
+        .fb-feed{max-width:600px;margin:0 auto;min-height:600px;display:flex;justify-content:center}
+
+        /* SERVICES */
+        .services-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:1.2rem}
+        .service-card{background:var(--white);border:1px solid var(--border);border-radius:14px;padding:2rem;text-align:center;transition:all .3s}
+        .service-card:hover{border-color:var(--gold);transform:translateY(-3px);box-shadow:0 10px 30px rgba(0,0,0,0.05)}
+        .service-icon{font-size:2rem;margin-bottom:.8rem}
+        .service-card h3{font-family:'Playfair Display',serif;font-size:1.05rem;font-weight:600;color:var(--navy);margin-bottom:.4rem}
+        .service-card p{color:var(--muted);font-size:.85rem;font-weight:300}
+
+        /* REVIEWS */
+        .reviews-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:1.2rem}
+        .review-card{background:var(--white);border:1px solid var(--border);border-radius:14px;padding:1.8rem}
+        .review-stars{color:var(--gold);font-size:.85rem;margin-bottom:.6rem}
+        .review-card p{color:var(--muted);font-size:.9rem;font-weight:300;font-style:italic;line-height:1.7;margin-bottom:.8rem}
+        .review-author{font-weight:600;font-size:.85rem;color:var(--navy)}
+
+        /* CTA */
+        .cta-section{background:var(--navy);padding:5rem 2rem;text-align:center;position:relative;overflow:hidden}
+        .cta-section::before{content:'';position:absolute;top:-50%;left:-50%;width:200%;height:200%;background:radial-gradient(circle at 60% 40%,rgba(197,165,90,0.08) 0%,transparent 60%)}
+        .cta-section *{position:relative}
+        .cta-section h2{font-family:'Playfair Display',serif;font-size:clamp(1.8rem,4vw,2.8rem);color:var(--white);margin-bottom:.8rem}
+        .cta-section p{color:rgba(255,255,255,0.6);font-size:1rem;font-weight:300;margin-bottom:2rem;max-width:450px;margin-left:auto;margin-right:auto}
+        .btn-white{background:var(--white);color:var(--navy);padding:.9rem 2.5rem;border-radius:10px;font-size:1rem;font-weight:600;text-decoration:none;transition:all .2s;display:inline-flex;align-items:center;gap:.5rem}
+        .btn-white:hover{transform:translateY(-2px);box-shadow:0 10px 30px rgba(0,0,0,0.2)}
+        .cta-phone{display:block;margin-top:1.2rem;color:var(--gold);font-size:1.3rem;font-weight:600;text-decoration:none;letter-spacing:.5px}
+
+        /* MAP */
+        .map-section{padding:0;width:100%}
+        .map-section iframe{width:100%;height:350px;border:0;filter:grayscale(30%)}
+
+        /* FOOTER */
+        footer{background:var(--navy-dark);padding:3rem 2rem;text-align:center}
+        .footer-brand{font-family:'Playfair Display',serif;font-size:1.2rem;font-weight:700;color:var(--white);margin-bottom:.3rem}
+        .footer-brand span{color:var(--gold)}
+        footer p{color:rgba(255,255,255,0.4);font-size:.8rem;font-weight:300}
+        footer a{color:var(--gold);text-decoration:none}
+        .footer-links{display:flex;gap:1.5rem;justify-content:center;margin:.8rem 0}
+        .footer-links a{color:rgba(255,255,255,0.5);font-size:.8rem;text-decoration:none}
+        .footer-links a:hover{color:var(--white)}
+
+        /* MOBILE */
+        @media(max-width:768px){
+            .nav-links{display:none}
+            .hero{padding:6rem 1.5rem 3rem}
+            .about-grid{grid-template-columns:1fr}
+            .about-image{height:200px}
+            .hero-details{flex-direction:column;align-items:center;gap:.8rem}
+            .hero-buttons{flex-direction:column;align-items:center}
+            .section{padding:3rem 1.5rem}
+            .cta-section{padding:3.5rem 1.5rem}
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <div class="nav-brand">
+            <svg class="nav-logo" viewBox="0 0 44 44" xmlns="http://www.w3.org/2000/svg">
+                <rect width="44" height="44" rx="10" fill="#1B2A4A"/>
+                <text x="22" y="29" font-family="'Playfair Display',serif" font-size="16" font-weight="700" fill="#C5A55A" text-anchor="middle" letter-spacing="1">MEG</text>
+            </svg>
+            <div class="nav-name">M.E.G.<span> Foundation</span></div>
+        </div>
+        <ul class="nav-links">
+            <li><a href="#about">About</a></li>
+            <li><a href="#events">Events</a></li>
+            <li><a href="#rentals">Rentals</a></li>
+            <li><a href="#reviews">Reviews</a></li>
+        </ul>
+        <a href="tel:7815585709" class="nav-cta">📞 Call Us</a>
+    </nav>
+
+    <section class="hero">
+        <div class="hero-logo">
+            <svg viewBox="0 0 120 120" xmlns="http://www.w3.org/2000/svg">
+                <rect width="120" height="120" rx="24" fill="#1B2A4A"/>
+                <rect x="8" y="8" width="104" height="104" rx="18" fill="none" stroke="#C5A55A" stroke-width="1.5"/>
+                <text x="60" y="62" font-family="'Playfair Display',Georgia,serif" font-size="32" font-weight="700" fill="#C5A55A" text-anchor="middle" letter-spacing="3">M.E.G.</text>
+                <text x="60" y="82" font-family="'Inter',sans-serif" font-size="9" font-weight="400" fill="rgba(255,255,255,0.5)" text-anchor="middle" letter-spacing="4">FOUNDATION</text>
+                <line x1="30" y1="42" x2="90" y2="42" stroke="#C5A55A" stroke-width="0.5" opacity="0.4"/>
+                <line x1="30" y1="88" x2="90" y2="88" stroke="#C5A55A" stroke-width="0.5" opacity="0.4"/>
+            </svg>
+        </div>
+        <div class="hero-badge">🏛️ Saugus Community Landmark</div>
+        <h1>The <em>M.E.G.</em> Foundation</h1>
+        <p>A historic community hall in the heart of Saugus. Hosting events, celebrations, and bringing the community together.</p>
+        <div class="hero-details">
+            <div class="hero-detail"><span class="icon">📍</span> 58 Essex St, Saugus, MA</div>
+            <div class="hero-detail"><span class="icon">📞</span> (781) 558-5709</div>
+            <div class="hero-detail"><span class="icon">⭐</span> 4.5 on Google</div>
+        </div>
+        <div class="hero-buttons">
+            <a href="tel:7815585709" class="btn-navy">📞 Call to Book</a>
+            <a href="#events" class="btn-gold">View Upcoming Events</a>
+        </div>
+    </section>
+
+    <section class="section" id="about">
+        <div class="section-label">Our Story</div>
+        <h2>A Saugus Landmark</h2>
+        <p class="section-desc">A wonderful old building with a rich history and a warm community.</p>
+        <div class="about-grid">
+            <div class="about-image">🏛️</div>
+            <div class="about-text">
+                <p>The M.E.G. Foundation is a beloved community hall located at 58 Essex Street in Saugus, Massachusetts. With its historic charm and spacious rooms, it has been the home of countless celebrations, community events, and gatherings.</p>
+                <p>Whether you're planning a family event, a community fundraiser, or a seasonal celebration, the M.E.G. Foundation provides a welcoming space with character you won't find anywhere else.</p>
+                <div class="about-stats">
+                    <div class="about-stat"><h3>4.5★</h3><p>Google Rating</p></div>
+                    <div class="about-stat"><h3>12+</h3><p>Reviews</p></div>
+                    <div class="about-stat"><h3>Saugus</h3><p>Massachusetts</p></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="events-section" id="events">
+        <div style="max-width:1000px;margin:0 auto">
+            <div class="section-label">What's Happening</div>
+            <h2>Upcoming Events</h2>
+            <p class="section-desc">Follow us on Facebook for the latest events and announcements.</p>
+            <div class="fb-feed">
+                <iframe src="https://www.facebook.com/plugins/page.php?href=https%3A%2F%2Fwww.facebook.com%2Fprofile.php%3Fid%3D100071231272321&tabs=timeline&width=500&height=600&small_header=true&adapt_container_width=true&hide_cover=false&show_facepile=false&appId" 
+                    width="500" height="600" style="border:none;overflow:hidden;border-radius:12px;max-width:100%" 
+                    scrolling="no" frameborder="0" allowfullscreen="true" 
+                    allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share">
+                </iframe>
+            </div>
+        </div>
+    </section>
+
+    <section class="section" id="rentals">
+        <div class="section-label">Our Space</div>
+        <h2>Hall Rentals & Events</h2>
+        <p class="section-desc">The perfect venue for your next event. Spacious, charming, and affordable.</p>
+        <div class="services-grid">
+            <div class="service-card">
+                <div class="service-icon">🎉</div>
+                <h3>Private Parties</h3>
+                <p>Birthday celebrations, anniversaries, showers, and more in a beautiful historic setting.</p>
+            </div>
+            <div class="service-card">
+                <div class="service-icon">🤝</div>
+                <h3>Community Events</h3>
+                <p>Fundraisers, meetings, and seasonal events that bring Saugus together.</p>
+            </div>
+            <div class="service-card">
+                <div class="service-icon">🎃</div>
+                <h3>Seasonal Activities</h3>
+                <p>Halloween, fall festivals, holiday events — we host the celebrations that make memories.</p>
+            </div>
+            <div class="service-card">
+                <div class="service-icon">🏛️</div>
+                <h3>Hall Rental</h3>
+                <p>Spacious historic hall available for rent. Contact us for rates and availability.</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="section" id="reviews">
+        <div class="section-label">What People Say</div>
+        <h2>Community Reviews</h2>
+        <div class="reviews-grid">
+            <div class="review-card">
+                <div class="review-stars">★★★★★</div>
+                <p>"Great location to get the kids ready for the halloween and fall activities!!"</p>
+                <div class="review-author">— Maria Montano</div>
+            </div>
+            <div class="review-card">
+                <div class="review-stars">★★★★★</div>
+                <p>"A wonderful old building and nice people belong to the Meg Foundation."</p>
+                <div class="review-author">— Jim Harrington</div>
+            </div>
+            <div class="review-card">
+                <div class="review-stars">★★★★★</div>
+                <p>"Great old building with lots of room."</p>
+                <div class="review-author">— Ken Ross</div>
+            </div>
+        </div>
+    </section>
+
+    <section class="cta-section">
+        <h2>Book the Hall</h2>
+        <p>Planning an event? Give us a call to check availability and rates.</p>
+        <a href="tel:7815585709" class="btn-white">📞 (781) 558-5709</a>
+        <a href="https://www.facebook.com/profile.php?id=100071231272321" class="cta-phone" target="_blank">Follow us on Facebook →</a>
+    </section>
+
+    <div class="map-section">
+        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2944.5!2d-71.0127!3d42.4685!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2s58+Essex+St%2C+Saugus%2C+MA+01906!5e0!3m2!1sen!2sus!4v1" allowfullscreen loading="lazy"></iframe>
+    </div>
+
+    <footer>
+        <div class="footer-brand">M.E.G.<span> Foundation</span></div>
+        <div class="footer-links">
+            <a href="#about">About</a>
+            <a href="#events">Events</a>
+            <a href="#rentals">Rentals</a>
+            <a href="https://www.facebook.com/profile.php?id=100071231272321" target="_blank">Facebook</a>
+        </div>
+        <p>58 Essex St, Saugus, MA 01906 · (781) 558-5709</p>
+        <p style="margin-top:.8rem">© 2026 M.E.G. Foundation. All rights reserved.</p>
+        <p style="margin-top:.3rem">Website by <a href="https://onlinedesign.cc">OnlineDesign.cc</a></p>
+    </footer>
+</body>
+</html>
