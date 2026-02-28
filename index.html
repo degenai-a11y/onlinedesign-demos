@@ -29,7 +29,11 @@
         .nav-links a:hover{color:var(--blue)}
         .nav-cta{background:var(--blue);color:var(--white);padding:.45rem 1.2rem;border-radius:980px;text-decoration:none;font-size:.82rem;font-weight:400;transition:all .2s}
         .nav-cta:hover{background:var(--blue-hover)}
-        @media(max-width:768px){.nav-links{display:none}}
+        @media(max-width:768px){
+            .nav-links{display:none}
+            .hero-image{display:none}
+            .hero{min-height:auto;padding:8rem 1.5rem 4rem}
+        }
 
         /* HERO */
         .hero{min-height:100vh;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:6rem 2rem 4rem;background:var(--white)}
@@ -41,9 +45,9 @@
         .btn-blue:hover{background:var(--blue-hover)}
         .btn-ghost{color:var(--blue);padding:.85rem 2rem;border-radius:980px;font-size:1rem;font-weight:400;text-decoration:none;transition:all .2s;display:inline-flex;align-items:center;gap:.3rem}
         .btn-ghost:hover{text-decoration:underline}
-        .hero-image{margin-top:4rem;width:100%;max-width:1000px;height:500px;background:var(--gray-bg);border-radius:20px;display:flex;align-items:center;justify-content:center;overflow:hidden;position:relative}
-        .hero-image-inner{display:flex;gap:1.5rem;padding:2rem}
-        .mock-browser{background:var(--white);border-radius:12px;box-shadow:0 4px 40px rgba(0,0,0,0.08);overflow:hidden;flex-shrink:0}
+        .hero-image{margin-top:4rem;width:100%;max-width:1000px;background:var(--gray-bg);border-radius:20px;display:flex;align-items:center;justify-content:center;overflow:hidden;position:relative;padding:2.5rem}
+        .hero-image-inner{display:flex;gap:1.5rem;width:100%;justify-content:center}
+        .mock-browser{background:var(--white);border-radius:12px;box-shadow:0 4px 40px rgba(0,0,0,0.08);overflow:hidden;flex:1;max-width:520px}
         .mock-browser-bar{height:32px;background:#f0f0f0;display:flex;align-items:center;padding:0 12px;gap:6px}
         .mock-dot{width:8px;height:8px;border-radius:50%}
         .mock-dot.r{background:#ff5f57}.mock-dot.y{background:#febc2e}.mock-dot.g{background:#28c840}
